@@ -1,0 +1,12 @@
+{
+  "name": "another-can-can",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Eighteen original expressive digital performances and an interactive listening room",
+  "scripts": {
+    "test": "node --test tests/*.test.js && python3 music/verify.py && python3 scripts/verify_site.py",
+    "build": "python3 scripts/build_site.py",
+    "serve": "python3 -m http.server 8080 --directory site"
+  }
+}

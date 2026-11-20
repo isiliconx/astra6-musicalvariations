@@ -1,0 +1,21 @@
+name: Verify scores, audio and site
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+      - name: Score, browser-model and package checks
+        run: npm test
+      - name: Verify recording bindings and measured audio report
+        run: python3 scripts/verify_audio.py
+      - name: Build the static site
+        run: npm run build

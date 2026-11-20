@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#102d43">
+  <meta name="description" content="One unmistakable melody. Nine musical worlds. Explore Offenbach’s Can-Can and eight newly composed stylistic variations, for piano and orchestra.">
+  <title>Another Can-Can · A listening experiment</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#listening-room">Skip to the music</a>
+  <header class="masthead wrap">
+    <a class="brand" href="#top" aria-label="Another Can-Can home"><svg viewBox="0 0 42 36" aria-hidden="true"><path d="M3 27h36M3 19h36M3 11h36"/><path d="M12 25V4l18-3v19"/><ellipse cx="8" cy="26" rx="5" ry="3.5"/><ellipse cx="26" cy="21" rx="5" ry="3.5"/></svg><span>Another<br>Can-Can</span></a>
+    <nav aria-label="Main navigation"><a href="#listening-room">Listen</a><a href="#programme">The experiment</a><a href="#sources">Credits</a></nav>
+    <span class="edition">A study in musical imagination</span>
+  </header>
+
+  <main id="top">
+    <section class="introduction wrap" aria-labelledby="hero-title">
+      <div class="intro-copy">
+        <p class="opening-note">You know the tune. Not like this.</p>
+        <h1 id="hero-title">One melody.<br>Nine different<br>worlds.</h1>
+        <p class="intro-description">A Parisian dance steps out of character. Hear Offenbach’s Can-Can unfold through eight new musical imaginations, from Bach’s interwoven lines to Liszt’s theatrical fire.</p>
+        <a class="start-link" href="#listening-room">Step into the listening room <span aria-hidden="true">↓</span></a>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <svg class="ribbon-score" viewBox="0 0 620 470"><defs><clipPath id="disc"><circle cx="310" cy="235" r="203"/></clipPath></defs><circle class="disc-shadow" cx="319" cy="249" r="203"/><circle class="disc-paper" cx="310" cy="235" r="203"/><g clip-path="url(#disc)" id="hero-score"></g><path class="orbit" d="M76 293C205 419 517 396 572 210"/><path class="orbit thin" d="M49 256C203 401 533 392 594 179"/><circle class="orbit-tip" cx="572" cy="210" r="6"/><text x="310" y="238" text-anchor="middle" class="art-can">can</text><text x="310" y="304" text-anchor="middle" class="art-can art-outline">can</text></svg>
+        <p class="art-footnote"><span class="little-line"></span> Offenbach, reimagined. Never on repeat.</p>
+      </div>
+    </section>
+
+    <section id="listening-room" class="listening-room" aria-labelledby="room-title">
+      <div class="room-heading wrap"><div><p class="section-kicker">The listening room</p><h2 id="room-title">Choose a musical mind.</h2></div><p>Nine interpretations.<br>Two ways to hear each one.</p></div>
+      <div class="composer-strip" role="group" aria-label="Choose an interpretation"><div class="composer-rail wrap" id="composer-rail"></div></div>
+      <div class="stage-container wrap">
+        <div class="performance-stage">
+          <div class="performance-top"><div class="identity"><p id="arrangement-label" class="arrangement-label">The original theme</p><h3 id="composer-title">Offenbach</h3><p id="performance-title">The spark that started it all</p></div><fieldset class="instrument-switch"><legend>Instrumentation</legend><button type="button" class="mode-button" data-mode="piano" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h18v16H3zM9 4v16m6-16v16"/><path class="fill" d="M6 4h4v9H6zm8 0h4v9h-4z"/></svg>Piano</button><button type="button" class="mode-button active" data-mode="orchestra" aria-pressed="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 18L20 3M8 16l-3-3m7 0L8 9m8 0l-3-3M4 21h16"/></svg>Orchestra</button></fieldset></div>
+          <div class="performance-facts"><span id="key-fact">D major</span><span id="meter-fact">2/4</span><span id="tempo-fact">Allegro</span><span id="duration-fact">Loading score…</span></div>
+          <div class="score-heading"><p>Follow the phrase</p><button id="visual-toggle" type="button" aria-pressed="false">Show whole piece</button></div>
+          <div class="score-window"><canvas id="score-canvas" aria-label="Animated piano-roll view of the authored notes. Equivalent musical descriptions are available below." role="img"></canvas><div class="score-axis" aria-hidden="true"><span>high</span><span>low</span></div><div class="score-empty" id="score-empty">Preparing the score…</div></div>
+          <div class="score-legend" id="score-legend" aria-label="Instrument colors"></div>
+          <div class="transport">
+            <button type="button" id="restart" class="icon-button" aria-label="Restart performance" title="Restart"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5v14m14-14L8 12l11 7z"/></svg></button>
+            <button type="button" id="play" class="play-button" aria-label="Play performance" disabled><svg id="play-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 4l12 8-12 8z"/></svg><span id="play-text">Play</span></button>
+            <span id="current-time" class="time">0:00</span><label class="sr-only" for="seek">Playback position</label><input id="seek" class="seek" type="range" min="0" max="1000" value="0" step="1" aria-valuetext="0 seconds"><span id="total-time" class="time">0:00</span>
+            <button type="button" id="mute" class="icon-button" aria-label="Mute audio" aria-pressed="false" title="Mute"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9h4l5-4v14l-5-4H3zm13-1a6 6 0 0 1 0 8m3-11a10 10 0 0 1 0 14"/></svg></button><label class="sr-only" for="volume">Volume</label><input id="volume" type="range" min="0" max="100" value="80" aria-label="Volume">
+          </div>
+          <div class="phrase-cues" id="phrase-cues" aria-label="Jump to a phrase"></div>
+          <div class="stage-footer"><p id="playback-status" role="status" aria-live="polite">Nothing plays until you press play.</p><button id="pin-button" type="button">Pin for A/B listening</button></div>
+          <div class="compare-bar" id="compare-bar" hidden><div><span class="compare-caption">Your comparison</span><p id="compare-description"></p></div><button id="compare-switch" type="button">Switch take</button><button id="compare-clear" type="button" aria-label="Clear comparison">×</button><small>Keeps the phrase within a take; matches a corresponding section across new arrangements.</small></div>
+        </div>
+        <aside class="listening-notes" aria-labelledby="notes-title"><div class="notes-heading"><span class="ear-mark" aria-hidden="true">♪</span><p>Listen for</p></div><h4 id="notes-title">A dance with a wink.</h4><p id="listening-description">Bright melody, spring-loaded accompaniment and the irrepressible pull toward the next downbeat.</p><div id="traits" class="traits"></div><div class="current-cue"><span>In the score</span><p id="cue-description">Press play, or choose a phrase.</p></div><a id="midi-download" href="data/offenbach-orchestra.mid" download>Download this MIDI <span aria-hidden="true">↧</span></a><p class="midi-note">Editable notes and expressive timing. The sampled recording is what you hear here.</p></aside>
+      </div>
+    </section>
+
+    <section id="programme" class="programme wrap" aria-labelledby="programme-title"><div class="programme-title"><p class="section-kicker">The experiment</p><h2 id="programme-title">Same spark.<br> Different instincts.</h2></div><div class="programme-body"><p class="lead">What makes a musical voice recognizable: the notes, or the choices between them?</p><p>Start with the exuberant dance from <cite>Orphée aux enfers</cite>. Keep its recognizable DNA, then change the musical thinking around it. Counterpoint instead of punchlines. A whispered answer instead of a shout. A rising orchestral surge instead of a single grand gesture.</p><div class="programme-columns"><div><h3>Composed, not filtered</h3><p>These are separate arrangements, not one recording run through nine effects. Harmony, register, texture, rhythm and instrumentation are authored for each interpretation.</p></div><div><h3>Shaped, not randomized</h3><p>Phrase-level tempo curves, purposeful accents, articulation and balance shape the performances. Licensed sampled instruments bring the written parts to life.</p></div></div><p class="honesty-note">The eight composer-inspired variations are newly authored arrangements, not works by those composers. These are expressive computer-rendered performances, not recordings of live musicians. The Poulenc-inspired variation uses broad stylistic ideas, not quotations from his music.</p></div></section>
+
+    <section id="sources" class="sources wrap" aria-labelledby="sources-title"><div><p class="section-kicker">The source notes</p><h2 id="sources-title">Nothing borrowed<br> without a name.</h2></div><div class="source-list"><details open><summary>The melody</summary><p>Jacques Offenbach, <cite>Orphée aux enfers</cite>, “Galop infernal.” Abridged from the historical Heugel piano reduction, plate H. 3781 (Paris, c. 1862), pp. 80–83, using Noctave’s CC0 MusicXML edition. The underlying composition and historical edition are public domain.</p><p><a href="https://gallica.bnf.fr/ark:/12148/bpt6k1187743z" target="_blank" rel="noreferrer">View the BnF historical score</a><a href="https://imslp.org/wiki/Orph%C3%A9e_aux_enfers_(Offenbach%2C_Jacques)" target="_blank" rel="noreferrer">Score catalogue at IMSLP</a></p></details><details><summary>The instruments & recordings</summary><p id="instrument-credit">Piano: Salamander Grand Piano by Alexander Holm. Orchestra: GeneralUser GS by S. Christian Collins. All recordings were rendered for this project from the authored scores, not taken from commercial performances.</p><p><a href="https://github.com/sfzinstruments/SalamanderGrandPiano" target="_blank" rel="noreferrer">Salamander Grand Piano</a><a href="https://www.schristiancollins.com/generaluser.php" target="_blank" rel="noreferrer">GeneralUser GS</a></p><p>Exact versions, licenses, transformations and reproduction steps are included with the source code.</p></details><details><summary>The open studio</summary><p>Keep exploring. The score generator, MIDI files, timing data, rendering scripts and complete website are available in the project repository. No account is needed to listen. No tracking, no autoplay, no runtime AI service.</p><p><a href="https://github.com/isiliconx/astra6-musicalvariations" target="_blank" rel="noreferrer">Explore the source on GitHub</a><a href="credits.html">Full credits & production notes</a></p></details></div></section>
+  </main>
+  <footer class="footer wrap"><a class="footer-name" href="#top">Another Can-Can</a><p>A little irreverence. A lot of listening.</p><a href="#listening-room">Back to the music ↑</a></footer>
+  <audio id="audio" preload="none"></audio>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
